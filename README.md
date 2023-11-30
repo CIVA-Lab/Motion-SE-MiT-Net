@@ -31,12 +31,12 @@ The qualitative results of proposed deep learning models with motion cue integra
 
 **src** folder contains all scripts used to train models, extract masks from trained models, and post-processing the output results to get labeled masks.
 
-**weights** folder contains pre-trained weights of the Motion-SE-MiT-Net, if you want to use pre-trained weights, put them inside **Src/weights/** folder.
+**weights** folder contains pre-trained weights of the Motion-SE-MiT-Net, if you want to use pre-trained weights, put them inside **src/weights/** folder.
 
 
 ## Project Collaborators and Contact
 
-**Author:** Gani Rahmon, Filiz Bunyak and Kannappan Palaniappan
+**Author:** Gani Rahmon, and Kannappan Palaniappan
 
 Copyright &copy; 2023-2024. Gani Rahmon and Prof. K. Palaniappan and Curators of the University of Missouri, a public corporation. All Rights Reserved.
 
