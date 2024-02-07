@@ -4,9 +4,9 @@ AIPR2023 - Marker and Motion Guided Deep Networks for Cell Segmentation and Dete
 
 ## News
 
-**[November 30, 2023]** 
+**[February 7, 2024]** 
 
-- :fire::fire::fire:  **The src code and weight will be uploaded soon** 
+- :fire::fire::fire:  **The src codes are uploaded. Instructions of how to use them and the weights will be uploaded soon** 
 
 
 ## Marker and Motion Guided Deep Networks for Cell Segmentation and Detection Using Weakly Supervised Microscopy Data
