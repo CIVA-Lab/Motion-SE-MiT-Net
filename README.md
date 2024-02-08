@@ -32,9 +32,9 @@ The qualitative results of proposed deep learning models with motion cue integra
 
 # How to use Motion-SE-MiT-Net
 
-**src** folder contains all scripts used to train models, extract masks from trained models, and post-processing the output results to get labeled masks.
+```src``` folder contains all scripts used to train models, extract masks from trained models, and post-processing the output results to get labeled masks.
 
-**weights** folder contains pre-trained weights of the Motion-SE-MiT-Net, if you want to use pre-trained weights, put them inside **src/models/** folder.
+```weights``` folder contains pre-trained weights of the Motion-SE-MiT-Net, if you want to use pre-trained weights, put them inside ```src/models``` folder.
 
 
 There are three parts for this software in ```src``` folder, you can skip Part 1 (Train Models) if you are planning to use pre-trained models.
@@ -62,7 +62,7 @@ In every parts, there are readme file that describes the needed steps. The descr
 
 2. Run ```run_train_UNet.sh``` for UNet and other .sh files for other networks. 
 
-This script will train UNet models according to the data you provided and save trained model inside ```models``` folder.
+This script will train UNet models according to the data you provided and save trained model inside ```src/models``` folder.
 
 **To train MUNet, MUSENet, MUMiTNet**
 
@@ -70,10 +70,44 @@ This script will train UNet models according to the data you provided and save t
 
 2.  Background Subtraction (BGS) and flux masks are optained using traditional methods. DIC-C2DH-HeLa is given as an example.
 
-3. Run ```run_train_MUNet.sh```
+3. Run ```run_train_MUNet.sh``` for MUNet and other .sh files for other networks. 
 
-This script will train MUNet models according to the data you provided and save trained model inside ```models``` folder.
+This script will train MUNet models according to the data you provided and save trained model inside ```src/models``` folder.
 
+
+## Part 2 : Extract Masks
+
+**To extract masks and markers of UNet, USENet, UMiTNet**
+
+1. To extract masks and markers using trained / pre-trained model of UNet, USENet, UMiTNet create a new folder with dataset name inside ```dataset/test/``` folder and and put your data inside created folder.
+
+2. Change dataset paths accordingly in ```inferUNet.py``` or other inference scripts you want to use.
+
+3. Change video sequence paths accordingly in ```files/seqNum.txt```. Some examples of video sequence taken from cell tracking challenge are given inside  ```seqNum.txt```
+
+4. Run ```run_infer_UNet.sh``` for UNet and other .sh files for other networks.
+
+This script will extract masks using trained / pre-trained model of UNet for the given dataset and save the result of output masks and markers inside ```output``` folder.
+
+**To extract masks and markers of MUNet, MUSENet, MUMiTNet**
+
+1. To extract masks and markers using trained / pre-trained model of MUNet, MUSENet, MUMiTNet:
+
+* * create a new folder with dataset name inside ```data/test/``` folder and and put your data inside created folder. 
+
+* * create another folder inside ```data/test/``` folder and put Background Subtraction (BGS) masks related to the data. Background subtraction masks are given as an example for DIC-C2DH-HeLa in ```data/train/``` folder, which is obtained using OpenCV library **BackgroundSubtractorMOG2** on an input images. 
+
+* * create another folder inside ```data/test/``` folder and put Flux masks related to the data. Flux masks are given as an example DIC-C2DH-HeLa in ```data/train/``` folder, which is obtained using **trace of the flux tensor** on an input images.
+
+* * For more detail how to obtain Background Subtraction and Flux Tensor read the paper.  
+
+2. Change dataset paths accordingly in ```inferMUNet.py``` or other inference scripts you want to use.
+
+3. Change video sequence paths accordingly in ```files/seqNum.txt```. Some examples of video sequence taken from cell tracking challenge are given inside  ```seqNum.txt```
+
+4. Run ```run_infer_MUNet.sh``` for MUNet and other .sh files for other networks.
+
+This script will extract masks using trained / pre-trained model of MUNet for the given dataset with related background subtraction and flux masks and save the result of output masks and markers inside ```output``` folder.
 
 
 ## Project Collaborators and Contact
