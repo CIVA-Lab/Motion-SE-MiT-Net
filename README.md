@@ -4,16 +4,28 @@ AIPR2023 - Marker and Motion Guided Deep Networks for Cell Segmentation and Dete
 
  The slides are available [Marker and Motion Guided Deep Networks for Cell Segmentation and Detection Using Weakly Supervised Microscopy Data](/figures/Slides.pdf)
 
+ </br>
+
 ## News
 
 **[February 8, 2024]** 
 
-- :fire::fire::fire:  **Weights and instructions of how to train and inference the models are uploaded. Post-processing MATLAB and BGS codes will be uploaded soon** 
+Post-processing MATLAB and BGS codes will be uploaded soon
+
+- :fire::fire::fire:  **BGS algorithm and how to use it will be uploaded soon.** 
+
+- :fire::fire::fire:  **Post-processing MATLAB scripts for getting final labeled result from masks and markers is uploaded.** 
+
+- :fire::fire::fire:  **Weights and instructions of how to train and inference the models are uploaded.** 
+
+- :fire::fire::fire:  **MATLAB scripts for getting binary masks and markers from Silver Truth (ST) is uploaded.** 
+
 
 **[February 7, 2024]** 
 
 - :fire::fire::fire:  **The src codes are uploaded. Instructions of how to use them and the weights will be uploaded soon** 
 
+</br>
 
 ## Marker and Motion Guided Deep Networks for Cell Segmentation and Detection Using Weakly Supervised Microscopy Data
 The accurate detection and segmentation of cells in microscopy image sequences play a crucial role in biomedical research and clinical diagnostic applications. However, accurately segmenting cells in low signal-to-noise ratio images remains challenging due to dense touching cells and deforming cells with indistinct boundaries. To address these challenges, this paper investigates the effectiveness of marker-guided networks, including UNet, with Squeeze-and-Excitation (SE) or MixTransformer (MiT) backbone architectures. We explore their performance both independently and in conjunction with motion cues, aiming to enhance cell segmentation and detection in both real and simulated data. The squeeze and excitation blocks enable the network to recalibrate features, highlighting valuable ones while downplaying less relevant ones. In contrast, the transformer encoder doesn’t require positional encoding, eliminating the need for interpolating positional codes, which can result in reduced performance when the testing resolution differs from the training data. We propose novel deep architectures, namely Motion USENet (MUSENet) and Motion UMiTNet (MUMiTNet), and adopt our previous method Motion UNet (MUNet), for robust cell segmentation and detection. Motion and change cues are computed through our tensor-based motion estimation and multimodal background subtraction (BGS) modules. The proposed network was trained, tested, and evaluated on the Cell Tracking Challenge (CTC) dataset. When comparing UMiTNet to USENet, there is a noteworthy 23% enhancement in cell segmentation and detection accuracy when trained on real data and tested on simulated data. Additionally, there is a substantial 32% improvement when trained on simulated data and tested on real data. Introducing motion cues (MUMiTNet) resulted in a significant 25% accuracy improvement over UMiTNet when trained on real data and tested on simulated data, and a 9% improvement when trained on simulated data and tested on real data.
@@ -50,6 +62,8 @@ There are three parts for this software in ```src``` folder, you can skip Part 1
 **Part 3 -->** Extract Masks and Markers: use trained/pre-trained models to extract masks and markers.
 
 **Part 4 -->** Post-Processing: use post-processing to get labeled results from masks and markers.
+
+**Part 5 -->** Evaluation: evaluate the final labeled result using evaluation methodology provided by Cell Tracking Challenge.
 
 In every parts, there are readme file that describes the needed steps. The description is also placed here.
 
@@ -123,6 +137,20 @@ This script will extract masks using trained / pre-trained model of UNet for the
 
 This script will extract masks using trained / pre-trained model of MUNet for the given dataset with related background subtraction and flux masks and save the result of output masks and markers inside ```output``` folder.
 
+## Part 4 : Post-Processing
+
+The MATLAB codes used to get labeled result from masks and markers is given in ```src``` folder.
+
+1. Specify output path along with the parameters to remove small blobs and fill blobs will small holes and threshold values for converting masks and markers into binary masks and markers in ```runPostProcessing.m``` script and run it. 
+
+2. The ```postProcessing.m``` script will generate final labeled result using masks and markers from network output and applying **watershed algorithm** and save the result in ```LabelMat``` folder. Moreover, the script will also generate the general visualization images showing mask, marker, overlay of marker on mask, and final labeled result using different color for each cell and save it in ```LabelMat_VIS``` folder.
+
+
+## Part 5: Evaluation
+
+The evaluation script provided in Cell Tracking Challenge is used. The details and the script can be found here [Evaluation Methodology](http://celltrackingchallenge.net/evaluation-methodology/). 
+
+</br>
 
 ## Project Collaborators and Contact
 
@@ -148,6 +176,7 @@ University of Missouri-Columbia
 Columbia, MO 65211  
 palaniappank@missouri.edu
 
+</br>
 
 ## ✏️ Citation
 
@@ -160,6 +189,16 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
   booktitle={2020 25th International Conference on Pattern Recognition (ICPR)}, 
   pages={8125-8132},
   year={2021}
+}
+
+@Article{Rahmon2023DeepFTSG,
+    author={Rahmon, Gani and Palaniappan, Kannappan and Toubal, Imad Eddine and Bunyak, Filiz and Rao, Raghuveer and Seetharaman, Guna},
+    title={DeepFTSG: Multi-stream Asymmetric USE-Net Trellis Encoders with Shared Decoder Feature Fusion Architecture for Video Motion Segmentation},
+    journal={International Journal of Computer Vision},
+    year={2023},
+    month={Oct},
+    day={17},
+    issn={1573-1405}
 }
 
 @ARTICLE{maskaCTC,

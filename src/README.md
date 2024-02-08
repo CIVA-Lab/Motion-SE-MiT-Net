@@ -1,6 +1,6 @@
 # Train UNet, USENet, UMiTNet, MUNet, MUSENet, and MUMiTNet models and extract masks and markers for trained / pre-trained models. 
 
-There are three parts for this software in ```src``` folder, you can skip Part 1 (Train Models) if you are planning to use pre-trained models.
+There are three parts for this software in ```src``` folder, you can skip Part 1 and Part 2 (Train Models) if you are planning to use pre-trained models.
 
 **Part 1 -->** Generate Masks and Markers from Silver Truth (ST): generating binary masks and markers to train the network models. 
 
@@ -9,6 +9,8 @@ There are three parts for this software in ```src``` folder, you can skip Part 1
 **Part 3 -->** Extract Masks and Markers: use trained/pre-trained models to extract masks and markers.
 
 **Part 4 -->** Post-Processing: use post-processing to get labeled results from masks and markers.
+
+**Part 5 -->** Evaluation: evaluate the final labeled result using evaluation methodology provided by Cell Tracking Challenge.
 
 In every parts, there are readme file that describes the needed steps. The description is also placed here.
 
@@ -81,3 +83,16 @@ This script will extract masks using trained / pre-trained model of UNet for the
 4. Run ```run_infer_MUNet.sh``` for MUNet and other .sh files for other networks.
 
 This script will extract masks using trained / pre-trained model of MUNet for the given dataset with related background subtraction and flux masks and save the result of output masks and markers inside ```output``` folder.
+
+## Part 4 : Post-Processing
+
+The MATLAB codes used to get labeled result from masks and markers is given in ```src``` folder.
+
+1. Specify output path along with the parameters to remove small blobs and fill blobs will small holes and threshold values for converting masks and markers into binary masks and markers in ```runPostProcessing.m``` script and run it. 
+
+2. The ```postProcessing.m``` script will generate final labeled result using masks and markers from network output and applying **watershed algorithm** and save the result in ```LabelMat``` folder. Moreover, the script will also generate the general visualization images showing mask, marker, overlay of marker on mask, and final labeled result using different color for each cell and save it in ```LabelMat_VIS``` folder.
+
+
+## Part 5: Evaluation
+
+The evaluation script provided in Cell Tracking Challenge is used. The details and the script can be found here [Evaluation Methodology](http://celltrackingchallenge.net/evaluation-methodology/). 
