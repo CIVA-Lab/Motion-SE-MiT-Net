@@ -6,6 +6,10 @@ AIPR2023 - Marker and Motion Guided Deep Networks for Cell Segmentation and Dete
 
 ## News
 
+**[February 8, 2024]** 
+
+- :fire::fire::fire:  **Weights and instructions of how to train and inference the models are uploaded. Post-processing MATLAB and BGS codes will be uploaded soon** 
+
 **[February 7, 2024]** 
 
 - :fire::fire::fire:  **The src codes are uploaded. Instructions of how to use them and the weights will be uploaded soon** 
