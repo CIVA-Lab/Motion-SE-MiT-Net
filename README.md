@@ -2,6 +2,8 @@
 AIPR2023 - Marker and Motion Guided Deep Networks for Cell Segmentation and Detection Using Weakly Supervised Microscopy Data
 <!-- The official implementation of the ICPR 2020 paper [**Motion U-Net: Multi-cue Encoder-Decoder Network for Motion Segmentation**](https://ieeexplore.ieee.org/document/9413211) -->
 
+ The slides are available [Marker and Motion Guided Deep Networks for Cell Segmentation and Detection Using Weakly Supervised Microscopy Data](/figures/Slides.pdf)
+
 ## News
 
 **[February 7, 2024]** 
@@ -26,12 +28,52 @@ The qualitative results of proposed deep learning models with motion cue integra
 
 ![](/figures/QualitativeFigure.png)
 
+</br>
 
 # How to use Motion-SE-MiT-Net
 
 **src** folder contains all scripts used to train models, extract masks from trained models, and post-processing the output results to get labeled masks.
 
-**weights** folder contains pre-trained weights of the Motion-SE-MiT-Net, if you want to use pre-trained weights, put them inside **src/weights/** folder.
+**weights** folder contains pre-trained weights of the Motion-SE-MiT-Net, if you want to use pre-trained weights, put them inside **src/models/** folder.
+
+
+There are three parts for this software in ```src``` folder, you can skip Part 1 (Train Models) if you are planning to use pre-trained models.
+
+**Part 1 -->** Train Models: train all models from scratch.
+
+**Part 2 -->** Extract Masks: use trained/pre-trained models to extract masks and markers.
+
+**Part 3 -->** Post-Processing: use post-processing to get labeled results from masks and markers.
+
+In every parts, there are readme file that describes the needed steps. The description is also placed here.
+
+**You need to use PyTorch to do Part 1 and Part2.**
+
+**You need to use MATLAB to do Part 3. However, python implementation for post-processing is also provided, but not as accurate as MATLAB one.**
+
+
+## Part 1 : Train Models
+
+**To train UNet, USENet, UMiTNet**
+
+1. Put your data used to train the network in a folder called ```dataset/train/``` folder. DIC-C2DH-HeLa is given as an example. Please cite Cell Tracking Challenge papers if you use DIC-C2DH-HeLa in your work.
+
+* From the provided ST (silver truth) from ```SEG``` folder, binary segmentations (```BSEG```) were obtained by binarizing the cells in the ST and by applying erosion to each individual cells in the ST markers (```MARKER```) were obtained.   
+
+2. Run ```run_train_UNet.sh``` for UNet and other .sh files for other networks. 
+
+This script will train UNet models according to the data you provided and save trained model inside ```models``` folder.
+
+**To train MUNet, MUSENet, MUMiTNet**
+
+1. Put your data used to train the network in a folder called ```data/train/``` folder. DIC-C2DH-HeLa is given as an example. Please cite Cell Tracking Challenge papers if you use DIC-C2DH-HeLa in your work.
+
+2.  Background Subtraction (BGS) and flux masks are optained using traditional methods. DIC-C2DH-HeLa is given as an example.
+
+3. Run ```run_train_MUNet.sh```
+
+This script will train MUNet models according to the data you provided and save trained model inside ```models``` folder.
+
 
 
 ## Project Collaborators and Contact
@@ -61,7 +103,7 @@ palaniappank@missouri.edu
 
 ## ✏️ Citation
 
-If you think this project is helpful, please feel free to leave a star⭐️ and cite our paper:
+If you think this project is helpful, please feel free to leave a star⭐️ and cite our paper and cell tracking challenge papers:
 
 ```
 @inproceedings{gani2021MUNet,
@@ -71,4 +113,25 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
   pages={8125-8132},
   year={2021}
 }
+
+@ARTICLE{maskaCTC,
+  author={M. Maška and V. Ulman and P. Delgado-Rodriguez and E. Gómez-de-Mariscal and T. Nečasová and F. A. Guerrero Peña and T. I. Ren and etc.},
+  journal={Nature Methods}, 
+  title="{The Cell Tracking Challenge: 10 years of objective benchmarking}", 
+  year={2023},
+  volume={20},
+  number={},
+  pages={1010-1020}
+}
+
+@ARTICLE{maskaCTCOld,
+  author={V. Ulman and M. Maška  and K. Magnusson and O. Ronneberger and C. Haubold and N. Harder and P. Matula and P. Matula and etc.},
+  journal={Nature Methods}, 
+  title="{An objective comparison of cell-tracking algorithms}", 
+  year={2017},
+  volume={14},
+  number={},
+  pages={1141-1152}
+}
 ```
+
