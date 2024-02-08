@@ -79,7 +79,7 @@ This script will train UNet models according to the data you provided and save t
 This script will train MUNet models according to the data you provided and save trained model inside ```src/models``` folder.
 
 
-## Part 2 : Extract Masks
+## Part 2 : Extract Masks and Markers
 
 **To extract masks and markers of UNet, USENet, UMiTNet**
 
@@ -162,7 +162,7 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
   pages={1010-1020}
 }
 
-@ARTICLE{maskaCTCOld,
+@ARTICLE{ulmanCTC,
   author={V. Ulman and M. Maška  and K. Magnusson and O. Ronneberger and C. Haubold and N. Harder and P. Matula and P. Matula and etc.},
   journal={Nature Methods}, 
   title="{An objective comparison of cell-tracking algorithms}", 
