@@ -1,6 +1,31 @@
 # Train UNet, USENet, UMiTNet, MUNet, MUSENet, and MUMiTNet models and extract masks and markers for trained / pre-trained models. 
 
-## Part 1 : Train Models
+There are three parts for this software in ```src``` folder, you can skip Part 1 (Train Models) if you are planning to use pre-trained models.
+
+**Part 1 -->** Generate Masks and Markers from Silver Truth (ST): generating binary masks and markers to train the network models. 
+
+**Part 2 -->** Train Models: train all models from scratch.
+
+**Part 3 -->** Extract Masks and Markers: use trained/pre-trained models to extract masks and markers.
+
+**Part 4 -->** Post-Processing: use post-processing to get labeled results from masks and markers.
+
+In every parts, there are readme file that describes the needed steps. The description is also placed here.
+
+**You need to use PyTorch to do Part 2 and Part 3.**
+
+**You need to use MATLAB to do Part 1 and Part 4. However, python implementation for post-processing is also provided, but not as accurate as MATLAB one. Part 1 can also be integrated using python implementation as well.**
+
+## Part 1 : Generate Masks and Markers from Silver Truth (ST)
+
+The MATLAB codes used to generate binary masks and markers from ST is given in ```dataset``` folder.
+
+1. Specify dataset path along with the parameters to remove small blobs and fill blobs will small holes in ```runGetMarker.m``` script and run it. 
+
+2. The ```getMarker.m``` script will generate binary masks by binarizing cells in ```ST``` image and save it in ```BSEG``` folder. Moreover, it will generate binary markers by eroding (erosion parameter is selected according to the cell area) cells in ```ST``` image and save it in ```MARKER``` folder. 
+
+
+## Part 2 : Train Models
 
 **To train UNet, USENet, UMiTNet**
 
@@ -23,7 +48,7 @@ This script will train UNet models according to the data you provided and save t
 This script will train MUNet models according to the data you provided and save trained model inside ```src/models``` folder.
 
 
-## Part 2 : Extract Masks
+## Part 3 : Extract Masks and Markers
 
 **To extract masks and markers of UNet, USENet, UMiTNet**
 
