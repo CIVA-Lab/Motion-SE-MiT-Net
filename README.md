@@ -8,6 +8,10 @@ AIPR2023 - Marker and Motion Guided Deep Networks for Cell Segmentation and Dete
 
 ## News
 
+**[February 9, 2024]**
+
+- :fire::fire::fire:  **Code for generating Background Subtraction (BGS) result using OpenCV library used in this work is available now !** 
+
 **[February 8, 2024]** 
 
 Post-processing MATLAB and BGS codes will be uploaded soon
@@ -149,6 +153,49 @@ The MATLAB codes used to get labeled result from masks and markers is given in `
 ## Part 5: Evaluation
 
 The evaluation script provided in Cell Tracking Challenge is used. The details and the script can be found here [Evaluation Methodology](http://celltrackingchallenge.net/evaluation-methodology/). 
+
+</br>
+
+## Running OpenCV Background Subtraction (BGS):
+
+**To get BGS results for use in Motion U-Net1 (MU-Net1) and Motion U-Net2 (MU-Net2)**
+
+1. Go to ```OpenCV_BGS``` folder.
+```
+cd OpenCV_BGS
+```
+
+2. Change the input/output paths and image file format in ```config.txt``` file accordingly.  
+
+3. Create a ```build``` folder:  
+```
+mkdir build
+```
+
+4. Enter the ```build``` folder:
+```
+cd build
+```
+
+5. Run ```cmake```:
+```
+cmake ..
+```
+
+6. Run ```make```:
+```
+make
+```
+
+7. Go to ```bin/linux``` folder:
+```
+cd ../bin/linux
+```
+
+8. Run ```BGSubOpenCV```:
+```
+./BGSubOpenCV
+```
 
 </br>
 

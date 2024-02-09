@@ -1,0 +1,11 @@
+# Config file to run OpenCV Background Subtraction
+
+##### IO Parameters #####
+# Input sequence path (give full path)
+input_dir = /mnt/d/GitHub/Motion-SE-MiT-Net-AIPR2023/src/dataset/train/DIC-C2DH-HeLa/01 
+
+# Input image file format (e.g., jpg, png)
+image_ext = tif
+
+# Ouput path (give full path)
+output_dir =  /mnt/d/GitHub/Motion-SE-MiT-Net-AIPR2023/src/dataset/train/DIC-C2DH-HeLa/01_BGS/ 
