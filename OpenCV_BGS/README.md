@@ -1,6 +1,6 @@
 # Running OpenCV Background Subtraction (BGS):
 
-**To get BGS results for use in Motion U-Net1 (MU-Net1) and Motion U-Net2 (MU-Net2)**
+**To get BGS results for use in MUNet, MUSENet, MUMiTNet**
 
 1. Change the input/output paths and image file format in ```config.txt``` file accordingly. 
 ```
