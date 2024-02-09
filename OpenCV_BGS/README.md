@@ -48,3 +48,28 @@ cd ../bin/linux
 ```
 
 8. The output of BGS will be saved in the provided output path.
+
+## ✏️ Citation
+
+Site OpenCV background subraction papers if you use OpenCV_BGS code in your project:
+
+```
+@article{Zivkovic,
+    title       = "{Efficient adaptive density estimation per image pixel for the task of background subtraction}",
+    journal     = "Pattern Recognition Letters",
+    volume      = "27",
+    number      = "7",
+    pages       = "773 - 780",
+    year        = "2006",
+    author      = "Zivkovic, Z. and van der Heijden, F."
+}
+
+@inproceedings{Zivkovic2,
+  author        = "Zivkovic, Z.",
+  booktitle     = "Int. Conf. Pattern Recognition", 
+  title         = "{Improved adaptive Gaussian mixture model for background subtraction}", 
+  year          = "2004",
+  volume        = "2",
+  pages         = "28-31"
+}
+```
