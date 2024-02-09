@@ -227,7 +227,7 @@ palaniappank@missouri.edu
 
 ## ✏️ Citation
 
-If you think this project is helpful, please feel free to leave a star⭐️ and cite our paper, and cell tracking challenge (CTC) papers if you use CTC data, and site OpenCV background subraction papers if you use OpenCV_BGS code in your project:
+If you think this project is helpful, please feel free to leave a star⭐️ and cite our paper:
 
 ```
 @inproceedings{gani2021MUNet,
@@ -247,7 +247,13 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
     day={17},
     issn={1573-1405}
 }
+```
 
+## ✏️ Citation
+
+Site cell tracking challenge (CTC) papers if you use CTC data in your project:
+
+```
 @ARTICLE{maskaCTC,
   author={M. Maška and V. Ulman and P. Delgado-Rodriguez and E. Gómez-de-Mariscal and T. Nečasová and F. A. Guerrero Peña and T. I. Ren and etc.},
   journal={Nature Methods}, 
@@ -267,7 +273,13 @@ If you think this project is helpful, please feel free to leave a star⭐️ and
   number={},
   pages={1141-1152}
 }
+```
 
+## ✏️ Citation
+
+Site OpenCV background subraction papers if you use OpenCV_BGS code in your project:
+
+```
 @article{Zivkovic,
     title       = "{Efficient adaptive density estimation per image pixel for the task of background subtraction}",
     journal     = "Pattern Recognition Letters",
